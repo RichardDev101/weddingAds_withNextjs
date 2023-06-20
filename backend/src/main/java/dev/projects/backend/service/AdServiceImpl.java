@@ -6,6 +6,7 @@ import dev.projects.backend.enums.PaymentCategory;
 import dev.projects.backend.repository.AdRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +14,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Service
 public class AdServiceImpl {
 
-    @Autowired
-    private AdRepository adRepository;
-    @Autowired
-    private GenerateUUIDService uuid;
+    private final AdRepository adRepository;
+    private final GenerateUUIDService uuid;
 
 
     public Advertisement save(Advertisement advertisement) {

@@ -1,8 +1,8 @@
 package dev.projects.backend.dto;
 
-import de.neuefische.backend.enums.LoginRole;
-import de.neuefische.backend.model.Address;
-import de.neuefische.backend.model.ContactDetail;
+import dev.projects.backend.enums.LoginRole;
+import dev.projects.backend.model.Address;
+import dev.projects.backend.model.ContactDetail;
 import lombok.Data;
 
 import java.util.List;

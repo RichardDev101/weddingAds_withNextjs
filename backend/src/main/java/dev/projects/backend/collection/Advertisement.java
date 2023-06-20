@@ -6,7 +6,7 @@ import dev.projects.backend.enums.BusinessCategory;
 import dev.projects.backend.enums.PaymentCategory;
 import dev.projects.backend.enums.PriceCategory;
 import dev.projects.backend.model.Address;
-import dev.projects.backend.Company;
+import dev.projects.backend.model.Company;
 import dev.projects.backend.model.ContactDetail;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

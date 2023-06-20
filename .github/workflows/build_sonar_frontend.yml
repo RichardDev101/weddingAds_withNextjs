@@ -1,4 +1,4 @@
-name: capstone-sonarcloud-frontend
+name: sonarcloud-frontend
 on:
   push:
     branches:

@@ -1,8 +1,6 @@
 package dev.projects.backend.service;
 
 import dev.projects.backend.collection.Advertisement;
-import dev.projects.backend.enums.BusinessCategory;
-import dev.projects.backend.enums.PaymentCategory;
 import dev.projects.backend.repository.AdRepository;
 import org.junit.jupiter.api.Test;
 
@@ -14,11 +12,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-class AdServiceImplTest {
+class AdServiceTest {
 
     AdRepository adRepository = mock(AdRepository.class);
     GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    AdServiceImpl adServiceImpl = new AdServiceImpl(adRepository,generateUUIDService);
+    AdService adServiceImpl = new AdService(adRepository,generateUUIDService);
 
     @Test
     void testSaveAdvertisement_ShouldSaveAdvertisementAndReturnExpected() {

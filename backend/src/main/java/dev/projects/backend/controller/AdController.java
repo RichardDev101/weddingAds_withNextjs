@@ -2,7 +2,7 @@ package dev.projects.backend.controller;
 
 import dev.projects.backend.collection.Advertisement;
 import dev.projects.backend.dto.AdvertisementDTO;
-import dev.projects.backend.service.AdServiceImpl;
+import dev.projects.backend.service.AdService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/ad")
 public class AdController {
 
-    private final AdServiceImpl adService;
+    private final AdService adService;
 
     @PostMapping()
     public Advertisement save(@RequestBody AdvertisementDTO ad){

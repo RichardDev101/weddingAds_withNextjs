@@ -16,9 +16,9 @@ import static org.mockito.Mockito.*;
 
 class PhotoServiceTest {
 
-    private PhotoRepository photoRepository = mock(PhotoRepository.class);
-    private GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    private PhotoService photoServiceImpl = new PhotoService(photoRepository, generateUUIDService);
+    private final PhotoRepository photoRepository = mock(PhotoRepository.class);
+    private final GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
+    private final PhotoService photoServiceImpl = new PhotoService(photoRepository, generateUUIDService);
 
     @Test
     void testAddPhoto_ShouldSavePhotoAndReturnPhotoId() throws IOException {

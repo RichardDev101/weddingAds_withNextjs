@@ -16,9 +16,9 @@ import static org.mockito.Mockito.*;
 
 class VendorServiceTest {
 
-    private VendorRepository vendorRepository = mock(VendorRepository.class);
-    private GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    private VendorService vendorServiceImpl= new VendorService(vendorRepository, generateUUIDService);
+    private final VendorRepository vendorRepository = mock(VendorRepository.class);
+    private final GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
+    private final VendorService vendorServiceImpl= new VendorService(vendorRepository, generateUUIDService);
 
     @Test
     void testSaveVendor_ShouldSaveVendorAndReturnSavedVendor() {

@@ -2,12 +2,9 @@ package dev.projects.backend.service;
 
 import dev.projects.backend.collection.Photo;
 import dev.projects.backend.repository.PhotoRepository;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

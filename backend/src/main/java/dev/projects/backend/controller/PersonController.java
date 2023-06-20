@@ -1,9 +1,9 @@
 package dev.projects.backend.controller;
 
-import de.neuefische.backend.collection.Person;
-import de.neuefische.backend.dto.PersonDTO;
-import de.neuefische.backend.enums.LoginRole;
-import de.neuefische.backend.service.PersonService;
+import dev.projects.backend.collection.Person;
+import dev.projects.backend.dto.PersonDTO;
+import dev.projects.backend.enums.LoginRole;
+import dev.projects.backend.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

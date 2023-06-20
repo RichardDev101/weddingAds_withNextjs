@@ -1,7 +1,7 @@
 package dev.projects.backend.collection;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import de.neuefische.backend.dto.VendorDTO;
+import dev.projects.backend.dto.VendorDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

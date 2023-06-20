@@ -1,8 +1,8 @@
 package dev.projects.backend.controller;
 
-import de.neuefische.backend.collection.Vendor;
-import de.neuefische.backend.dto.VendorDTO;
-import de.neuefische.backend.service.VendorService;
+import dev.projects.backend.collection.Vendor;
+import dev.projects.backend.dto.VendorDTO;
+import dev.projects.backend.service.VendorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

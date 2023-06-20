@@ -1,13 +1,13 @@
 package dev.projects.backend.collection;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import de.neuefische.backend.enums.AdvertisementStatus;
-import de.neuefische.backend.enums.BusinessCategory;
-import de.neuefische.backend.enums.PaymentCategory;
-import de.neuefische.backend.enums.PriceCategory;
-import de.neuefische.backend.model.Address;
-import de.neuefische.backend.model.Company;
-import de.neuefische.backend.model.ContactDetail;
+import dev.projects.backend.enums.AdvertisementStatus;
+import dev.projects.backend.enums.BusinessCategory;
+import dev.projects.backend.enums.PaymentCategory;
+import dev.projects.backend.enums.PriceCategory;
+import dev.projects.backend.model.Address;
+import dev.projects.backend.Company;
+import dev.projects.backend.model.ContactDetail;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

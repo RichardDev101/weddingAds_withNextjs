@@ -2,7 +2,7 @@ package dev.projects.backend.controller;
 
 import dev.projects.backend.collection.Photo;
 import dev.projects.backend.service.PhotoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/photo")
 public class PhotoController {
 
-    @Autowired
-    private PhotoService photoService;
+    private final PhotoService photoService;
 
     @PostMapping
     public String addPhoto(@RequestParam("image") MultipartFile  image) throws IOException {

@@ -4,19 +4,18 @@ import dev.projects.backend.collection.Person;
 import dev.projects.backend.dto.PersonDTO;
 import dev.projects.backend.enums.LoginRole;
 import dev.projects.backend.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class PersonController {
 
-    @Autowired
-    private PersonService personService;
+    private final PersonService personService;
 
     //CREATE
     @PostMapping("/person/master-admin")

@@ -5,17 +5,16 @@ import dev.projects.backend.dto.AdvertisementDTO;
 import dev.projects.backend.enums.BusinessCategory;
 import dev.projects.backend.enums.PaymentCategory;
 import dev.projects.backend.service.AdService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/ad")
 public class AdController {
 
-    @Autowired
-    private AdService adService;
+    private final AdService adService;
 
     //CREATE
     @PostMapping()

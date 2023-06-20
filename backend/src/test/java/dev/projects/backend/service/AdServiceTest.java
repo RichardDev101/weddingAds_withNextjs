@@ -14,11 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-class AdServiceImplTest {
+class AdServiceTest {
 
     AdRepository adRepository = mock(AdRepository.class);
     GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    AdServiceImpl adServiceImpl = new AdServiceImpl(adRepository,generateUUIDService);
+    AdService adService = new AdService(adRepository,generateUUIDService);
 
     @Test
     void testSaveAdvertisement_ShouldSaveAdvertisementAndReturnExpected() {
@@ -27,7 +27,7 @@ class AdServiceImplTest {
         Advertisement expected = new Advertisement();
         // ACT
         when(adRepository.save(ad)).thenReturn(expected);
-        Advertisement actual = adServiceImpl.save(ad);
+        Advertisement actual = adService.save(ad);
         // ASSERT
         verify(adRepository).save(expected);
         verify(generateUUIDService).getUUID();
@@ -40,7 +40,7 @@ class AdServiceImplTest {
         List<Advertisement> expected = List.of(new Advertisement(), new Advertisement());
         // ACT
         when(adRepository.findAll()).thenReturn(expected);
-        List<Advertisement> actual =adServiceImpl.getAllAds();
+        List<Advertisement> actual = adService.getAllAds();
         // ASSERT
         verify(adRepository).findAll();
         assertEquals(actual, expected);
@@ -54,7 +54,7 @@ class AdServiceImplTest {
         expectedAd.setId(id);
         when(adRepository.findById(id)).thenReturn(Optional.of(expectedAd));
         // ACT
-        Advertisement actualAd = adServiceImpl.getAdWithId(id);
+        Advertisement actualAd = adService.getAdWithId(id);
         // ASSERT
         assertEquals(expectedAd, actualAd);
         verify(adRepository).findById(id);
@@ -66,7 +66,7 @@ class AdServiceImplTest {
         when(adRepository.findById(id)).thenReturn(Optional.empty());
 
         // Act & Assert
-        assertThrows(NoSuchElementException.class, () -> adServiceImpl.getAdWithId(id));
+        assertThrows(NoSuchElementException.class, () -> adService.getAdWithId(id));
         verify(adRepository).findById(id);
     }
 
@@ -78,7 +78,7 @@ class AdServiceImplTest {
 
         // ACT
         when(adRepository.findAdvertisementsByBusinessCategories(businessCategory)).thenReturn(expected);
-        List<Advertisement> actual = adServiceImpl.getAdByBusiness(businessCategory);
+        List<Advertisement> actual = adService.getAdByBusiness(businessCategory);
 
         // ASSERT
         verify(adRepository).findAdvertisementsByBusinessCategories(businessCategory);
@@ -93,7 +93,7 @@ class AdServiceImplTest {
 
         // ACT
         when(adRepository.findAdvertisementsByPaymentCategory(paymentCategory)).thenReturn(expected);
-        List<Advertisement> actual = adServiceImpl.getAdsByPaymentCategory(paymentCategory);
+        List<Advertisement> actual = adService.getAdsByPaymentCategory(paymentCategory);
 
         // ASSERT
         verify(adRepository).findAdvertisementsByPaymentCategory(paymentCategory);
@@ -108,7 +108,7 @@ class AdServiceImplTest {
 
         // ACT
         when(adRepository.findAdvertisementsByAveragePriceIsLessThanEqual(averagePrice)).thenReturn(expected);
-        List<Advertisement> actual = adServiceImpl.getAdsByAveragePriceIsLessOrEqual(averagePrice);
+        List<Advertisement> actual = adService.getAdsByAveragePriceIsLessOrEqual(averagePrice);
 
         // ASSERT
         verify(adRepository).findAdvertisementsByAveragePriceIsLessThanEqual(averagePrice);
@@ -129,7 +129,7 @@ class AdServiceImplTest {
         when(adRepository.findById(id)).thenReturn(Optional.of(originalAdvertisement));
         when(adRepository.save(updatedAdvertisement)).thenReturn(updatedAdvertisement);
         // ACT
-        String result = adServiceImpl.updateAd(updatedAdvertisement, id);
+        String result = adService.updateAd(updatedAdvertisement, id);
 
         // ASSERT
         verify(adRepository).findById(id);
@@ -144,7 +144,7 @@ class AdServiceImplTest {
         when(adRepository.findById(id)).thenReturn(Optional.of(new Advertisement()));
 
         // ACT
-        adServiceImpl.delete(id);
+        adService.delete(id);
 
         // ASSERT
         verify(adRepository).findById(id);

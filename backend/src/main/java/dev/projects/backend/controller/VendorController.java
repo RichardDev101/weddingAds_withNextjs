@@ -2,19 +2,16 @@ package dev.projects.backend.controller;
 
 import dev.projects.backend.collection.Vendor;
 import dev.projects.backend.dto.VendorDTO;
-import dev.projects.backend.service.VendorService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class VendorController {
 
-
-    @Autowired
-    private VendorService vendorService;
+    private final VendorService vendorService;
 
     //CREATE
     @PostMapping("/vendor")

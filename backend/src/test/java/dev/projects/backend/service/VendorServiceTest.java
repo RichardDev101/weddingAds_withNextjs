@@ -4,7 +4,6 @@ import dev.projects.backend.collection.Vendor;
 import dev.projects.backend.enums.LoginRole;
 import dev.projects.backend.repository.VendorRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-class VendorServiceImplTest {
+class VendorServiceTest {
 
     private VendorRepository vendorRepository = mock(VendorRepository.class);
     private GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    private VendorServiceImpl vendorServiceImpl= new VendorServiceImpl(vendorRepository, generateUUIDService);
+    private VendorService vendorServiceImpl= new VendorService(vendorRepository, generateUUIDService);
 
     @Test
     void testSaveVendor_ShouldSaveVendorAndReturnSavedVendor() {

@@ -3,7 +3,6 @@ package dev.projects.backend.service;
 import dev.projects.backend.collection.Photo;
 import dev.projects.backend.repository.PhotoRepository;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,12 +14,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.*;
 
-@SpringBootTest
-class PhotoServiceImplTest {
+class PhotoServiceTest {
 
     private PhotoRepository photoRepository = mock(PhotoRepository.class);
     private GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    private PhotoServiceImpl photoServiceImpl = new PhotoServiceImpl(photoRepository, generateUUIDService);
+    private PhotoService photoServiceImpl = new PhotoService(photoRepository, generateUUIDService);
 
     @Test
     void testAddPhoto_ShouldSavePhotoAndReturnPhotoId() throws IOException {

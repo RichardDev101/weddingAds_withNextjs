@@ -2,24 +2,18 @@ package dev.projects.backend.controller;
 
 import dev.projects.backend.collection.Advertisement;
 import dev.projects.backend.dto.AdvertisementDTO;
-import dev.projects.backend.enums.BusinessCategory;
-import dev.projects.backend.enums.PaymentCategory;
-import dev.projects.backend.service.AdService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/ad")
 public class AdController {
 
-    @Autowired
-    private AdService adService;
+    private final AdService adService;
 
-    //CREATE
     @PostMapping()
-    //@PreAuthorize("hasAuthority('LoginRole=ADMIN')")
     public Advertisement save(@RequestBody AdvertisementDTO ad){
         Advertisement newAd =Advertisement.builder()
                 .advertisementStatus(ad.getAdvertisementStatus())
@@ -39,7 +33,6 @@ public class AdController {
         return adService.save(newAd);
     }
 
-    //READ
     @GetMapping()
     public List<Advertisement> getAllAds(){
         return adService.getAllAds();

@@ -16,24 +16,23 @@ import java.util.Optional;
 @AllArgsConstructor
 @NoArgsConstructor
 @Service
-public class AdServiceImpl implements AdService{
+public class AdServiceImpl {
 
     @Autowired
     private AdRepository adRepository;
     @Autowired
     private GenerateUUIDService uuid;
 
-    @Override
+
     public Advertisement save(Advertisement advertisement) {
         advertisement.setId(uuid.getUUID());
         return adRepository.save(advertisement);
     }
 
-    @Override
     public List<Advertisement> getAllAds() {
         return adRepository.findAll();
     }
-    @Override
+
     public Advertisement getAdWithId(String id) {
         Optional<Advertisement> optionalAdvertisement = adRepository.findById(id);
         if (optionalAdvertisement.isPresent()) {

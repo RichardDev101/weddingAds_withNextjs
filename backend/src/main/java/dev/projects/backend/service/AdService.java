@@ -10,11 +10,4 @@ public interface AdService {
     Advertisement save(Advertisement advertisement);
     List<Advertisement>  getAllAds();
     Advertisement getAdWithId(String id);
-    List<Advertisement> getAdByBusiness(BusinessCategory businessCategory);
-    List<Advertisement> getAdsByPaymentCategory(PaymentCategory paymentCategory);
-    List<Advertisement> getAdsByAveragePriceIsLessOrEqual(float averagePrice);
-    String updateAd(Advertisement advertisement, String id);
-    void delete(String id);
-
-
 }

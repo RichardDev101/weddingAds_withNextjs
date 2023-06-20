@@ -24,5 +24,5 @@ public enum BusinessCategory {
     WEDDING_PLANNER,
     INVITATION_PAPER_GOODS,
     BAR_SERVICE,
-    ENTERTAINMENT;
+    ENTERTAINMENT
 }

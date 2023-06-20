@@ -159,7 +159,7 @@ class PersonControllerTest {
     @DirtiesContext
     @WithMockUser
     void testGetPersonsByRole() throws Exception {
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/person/user")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/person/user")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -170,8 +170,7 @@ class PersonControllerTest {
                               }
                                 """)
                         .with(csrf()))
-                .andExpect(status().is(200))
-                .andReturn();
+                .andExpect(status().is(200));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/persons/role")
                         .param("role", LoginRole.USER.toString()))

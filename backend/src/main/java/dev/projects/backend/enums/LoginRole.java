@@ -4,5 +4,5 @@ public enum LoginRole {
     USER,
     EDITOR,
     VENDOR,
-    ADMIN;
+    ADMIN
 }

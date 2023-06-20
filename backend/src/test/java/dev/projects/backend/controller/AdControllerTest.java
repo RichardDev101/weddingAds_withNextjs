@@ -221,7 +221,7 @@ class AdControllerTest {
     @DirtiesContext
     @WithMockUser
     void testGetAdsByBusiness_whenFoundAdByBusiness_returnCorrectAds_andStatusCode200() throws Exception {
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/ad")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/ad")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -260,8 +260,7 @@ class AdControllerTest {
                              }
                                 """)
                         .with(csrf()))
-                .andExpect(status().is(200))
-                .andReturn();
+                .andExpect(status().is(200));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/ad/business")
                         .param("businessCategory", BusinessCategory.PHOTOGRAPHER.toString()))
@@ -308,7 +307,7 @@ class AdControllerTest {
     @DirtiesContext
     @WithMockUser
     void testGetAdsByPaymentCategory() throws Exception {
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/ad")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/ad")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -336,8 +335,7 @@ class AdControllerTest {
                              }
                                 """)
                         .with(csrf()))
-                .andExpect(status().is(200))
-                .andReturn();
+                .andExpect(status().is(200));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/ad/payment")
                         .param("paymentCategory", PaymentCategory.ADVANCE.toString()))
@@ -373,7 +371,7 @@ class AdControllerTest {
     @DirtiesContext
     @WithMockUser
     void testGetAdsByAveragePriceIsLessOrEqual() throws Exception {
-        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post("/api/ad")
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/ad")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("""
                                 {
@@ -401,8 +399,7 @@ class AdControllerTest {
                              }
                                 """)
                         .with(csrf()))
-                .andExpect(status().is(200))
-                .andReturn();
+                .andExpect(status().is(200));
 
         mockMvc.perform(MockMvcRequestBuilders.get("/api/ad/average-price")
                         .param("averagePrice", "150"))

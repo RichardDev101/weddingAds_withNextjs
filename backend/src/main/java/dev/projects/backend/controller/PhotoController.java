@@ -1,7 +1,6 @@
 package dev.projects.backend.controller;
 
 import dev.projects.backend.collection.Photo;
-import dev.projects.backend.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;

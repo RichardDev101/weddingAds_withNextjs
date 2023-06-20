@@ -42,34 +42,5 @@ public class AdServiceImpl implements AdService{
             throw new NoSuchElementException();
         }
     }
-    @Override
-    public List<Advertisement> getAdByBusiness(BusinessCategory businessCategory) {
-        return adRepository.findAdvertisementsByBusinessCategories(businessCategory);
-    }
-    @Override
-    public List<Advertisement> getAdsByPaymentCategory(PaymentCategory paymentCategory) {
-        return adRepository.findAdvertisementsByPaymentCategory(paymentCategory);
-    }
-    @Override
-    public List<Advertisement> getAdsByAveragePriceIsLessOrEqual(float averagePrice) {
-        return adRepository.findAdvertisementsByAveragePriceIsLessThanEqual(averagePrice);
-    }
-    @Override
-    public String updateAd(Advertisement advertisement, String id) {
-        Optional<Advertisement> optionalAdvertisement = adRepository.findById(id);
-        if(optionalAdvertisement.isEmpty()){
-            throw new NoSuchElementException();
-        }else {
-            return adRepository.save(advertisement).getId();
-        }
-    }
-    @Override
-    public void delete(String id) {
-        Optional<Advertisement> optionalAdvertisement = adRepository.findById(id);
-        if(optionalAdvertisement.isEmpty()){
-            throw new NoSuchElementException();
-        }else {
-            adRepository.deleteById(id);
-        }
-    }
+
 }

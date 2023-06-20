@@ -2,6 +2,7 @@ package dev.projects.backend.controller;
 
 import dev.projects.backend.collection.Vendor;
 import dev.projects.backend.dto.VendorDTO;
+import dev.projects.backend.service.VendorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

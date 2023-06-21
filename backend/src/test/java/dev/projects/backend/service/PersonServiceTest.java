@@ -81,7 +81,6 @@ class PersonServiceTest {
         assertEquals(LoginRole.USER, person.getLoginRole());
         assertEquals(person, result);
     }
-
     @Test
     void testGetAllPersons_ShouldReturnAllPersons() {
         // ARRANGE
@@ -95,7 +94,6 @@ class PersonServiceTest {
         verify(personRepository).findAll();
         assertEquals(expectedPersons, result);
     }
-
     @Test
     void testGetPersonsByRole_ShouldReturnPersonsByRole() {
         // ARRANGE

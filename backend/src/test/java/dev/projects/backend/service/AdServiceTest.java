@@ -33,7 +33,6 @@ class AdServiceTest {
         verify(generateUUIDService).getUUID();
         assertEquals(expected, actual);
     }
-
     @Test
     void testGetAllAds_ShouldReturnListOfAdvertisements() {
         // ARRANGE
@@ -45,7 +44,6 @@ class AdServiceTest {
         verify(adRepository).findAll();
         assertEquals(actual, expected);
     }
-
     @Test
     void testGetAdWithId_ExistingId_ReturnsAdvertisement() {
         // ARRANGE
@@ -69,7 +67,6 @@ class AdServiceTest {
         assertThrows(NoSuchElementException.class, () -> adService.getAdWithId(id));
         verify(adRepository).findById(id);
     }
-
     @Test
     void testGetAdByBusiness_ShouldReturnListOfAdvertisementsForGivenBusinessCategory() {
         // ARRANGE
@@ -84,7 +81,6 @@ class AdServiceTest {
         verify(adRepository).findAdvertisementsByBusinessCategories(businessCategory);
         assertEquals(expected, actual);
     }
-
     @Test
     void testGetAdsByPaymentCategory_ShouldReturnListOfAdvertisementsForGivenPaymentCategory() {
         // ARRANGE

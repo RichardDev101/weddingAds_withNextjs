@@ -11,11 +11,11 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-class PersonServiceImplTest {
+class PersonServiceTest {
 
     PersonRepository personRepository = mock(PersonRepository.class);
     GenerateUUIDService generateUUIDService = mock(GenerateUUIDService.class);
-    PersonServiceImpl personServiceImpl = new PersonServiceImpl(personRepository, generateUUIDService);
+    PersonService personService = new PersonService(personRepository, generateUUIDService);
 
     @Test
     void testSaveAdmin_ShouldSaveAdminAndReturnPerson() {
@@ -28,7 +28,7 @@ class PersonServiceImplTest {
         when(personRepository.save(person)).thenReturn(person);
 
         // ACT
-        Person result = personServiceImpl.saveAdmin(person);
+        Person result = personService.saveAdmin(person);
 
         // ASSERT
         verify(generateUUIDService).getUUID();
@@ -49,7 +49,7 @@ class PersonServiceImplTest {
         when(personRepository.save(person)).thenReturn(person);
 
         // ACT
-        Person result = personServiceImpl.saveEditor(person);
+        Person result = personService.saveEditor(person);
 
         // ASSERT
         verify(generateUUIDService).getUUID();
@@ -71,7 +71,7 @@ class PersonServiceImplTest {
         when(personRepository.save(person)).thenReturn(person);
 
         // ACT
-        Person result = personServiceImpl.saveUser(person);
+        Person result = personService.saveUser(person);
 
         // ASSERT
         verify(generateUUIDService).getUUID();
@@ -89,7 +89,7 @@ class PersonServiceImplTest {
         when(personRepository.findAll()).thenReturn(expectedPersons);
 
         // ACT
-        List<Person> result = personServiceImpl.getAllPersons();
+        List<Person> result = personService.getAllPersons();
 
         // ASSERT
         verify(personRepository).findAll();
@@ -104,7 +104,7 @@ class PersonServiceImplTest {
         when(personRepository.findByLoginRoleIs(role)).thenReturn(expectedPersons);
 
         // ACT
-        List<Person> result = personServiceImpl.getPersonsByRole(role);
+        List<Person> result = personService.getPersonsByRole(role);
 
         // ASSERT
         verify(personRepository).findByLoginRoleIs(role);
@@ -120,7 +120,7 @@ class PersonServiceImplTest {
         when(personRepository.findById(id)).thenReturn(Optional.of(expectedPerson));
 
         // ACT
-        Person result = personServiceImpl.getPersonById(id);
+        Person result = personService.getPersonById(id);
 
         // ASSERT
         verify(personRepository).findById(id);
@@ -142,7 +142,7 @@ class PersonServiceImplTest {
         when(personRepository.save(updatedPerson)).thenReturn(updatedPerson);
 
         // ACT
-        Person result = personServiceImpl.update(updatedPerson, id);
+        Person result = personService.update(updatedPerson, id);
 
         // ASSERT
         verify(personRepository).findById(id);
@@ -158,7 +158,7 @@ class PersonServiceImplTest {
         when(personRepository.findById(id)).thenReturn(Optional.of(new Person()));
 
         // ACT
-        personServiceImpl.delete(id);
+        personService.delete(id);
 
         // ASSERT
         verify(personRepository).findById(id);

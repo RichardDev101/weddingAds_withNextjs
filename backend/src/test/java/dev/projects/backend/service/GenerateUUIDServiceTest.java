@@ -21,8 +21,8 @@ class GenerateUUIDServiceTest {
         assertNotNull(newUUID);
         assertTrue(isValidUUID(newUUID));
     }
-
-    private boolean isValidUUID(String uuid) {
+    @Test
+    boolean isValidUUID(String uuid) {
         try {
             UUID.fromString(uuid);
             return true;

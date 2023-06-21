@@ -4,21 +4,20 @@ import dev.projects.backend.collection.Person;
 import dev.projects.backend.dto.PersonDTO;
 import dev.projects.backend.enums.LoginRole;
 import dev.projects.backend.service.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
 public class PersonController {
 
-    @Autowired
-    private PersonService personService;
+    private final PersonService personService;
 
-    //CREATE
     @PostMapping("/person/master-admin")
     public ResponseEntity<String> checkAndCreateMasterAdmin(){
         List<Person> personList = getPersonsByRole(LoginRole.ADMIN);
@@ -37,7 +36,6 @@ public class PersonController {
         return ResponseEntity.status(HttpStatus.CREATED).body("MasterAdmin has been successfully created.");
     }
     @PostMapping("/person/admin")
-    //@PreAuthorize("hasAuthority('LoginRole=ADMIN')")
     public Person saveAdmin(@RequestBody PersonDTO person){
         Person addAdmin = Person.personBuilder()
                 .userName(person.getUserName())
@@ -52,7 +50,6 @@ public class PersonController {
         return personService.saveAdmin(addAdmin);
     }
     @PostMapping("/person/editor")
-    //@PreAuthorize("hasAuthority('LoginRole=ADMIN')")
     public Person saveEditor(@RequestBody PersonDTO  person){
         Person addEditor = Person.personBuilder()
                 .userName(person.getUserName())
@@ -67,7 +64,6 @@ public class PersonController {
         return personService.saveEditor(addEditor);
     }
     @PostMapping("/person/user")
-    //@PreAuthorize("hasAuthority('LoginRole=ADMIN')")
     public Person saveUser(@RequestBody PersonDTO person){
         Person addUser = Person.personBuilder()
                 .userName(person.getUserName())
@@ -82,7 +78,6 @@ public class PersonController {
         return personService.saveUser(addUser);
     }
 
-    //READ
     @GetMapping("/persons")
     public List<Person> getAllPersons(){
         return personService.getAllPersons();
@@ -91,13 +86,11 @@ public class PersonController {
     public List<Person> getPersonsByRole(@RequestParam("role") LoginRole role){
         return personService.getPersonsByRole(role);
     }
-
     @GetMapping("/person/{id}")
     public Person getPersonById(@PathVariable String id){
         return personService.getPersonById(id);
     }
 
-    //UPDATE
     @PutMapping("/person/{id}")
     public Person update(@RequestBody PersonDTO person, @PathVariable String id){
         Person updatePerson = Person.personBuilder()
@@ -113,7 +106,7 @@ public class PersonController {
                 .build();
         return personService.update(updatePerson, id);
     }
-    //DELETE
+
     @DeleteMapping("/person/{id}")
     public void delete(@PathVariable String id){
         personService.delete(id);
